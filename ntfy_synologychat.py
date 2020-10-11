@@ -15,15 +15,15 @@ import requests
 import urllib3.exceptions
 
 def notify(title, message,
-           webhook_url, verify=True,
-           retcode=None):
+           webhook_url, verify=True, timeout=30,
+           **kwargs):
 
     body = 'payload=' + json.dumps({
         'text': message
     })
 
     if verify:
-        response = requests.post(webhook_url, body)
+        response = requests.post(webhook_url, body, timeout=timeout)
     else:
         with warnings.catch_warnings():
             warnings.simplefilter('ignore', urllib3.exceptions.InsecureRequestWarning)
