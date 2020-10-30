@@ -2,6 +2,12 @@
 
 Synology Chat backend for ntfy.
 
+## Installation
+
+``` cmd
+pip install ntfy-synologychat
+```
+
 ## Usage
 
 ``` yaml
